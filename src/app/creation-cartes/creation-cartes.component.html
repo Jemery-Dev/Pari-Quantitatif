@@ -1,0 +1,23 @@
+<p>creation-cartes works!</p>
+<h1>teteteteteteteteteest</h1>
+
+
+<h1>Ajouter dans le jijison</h1>
+<h2>Créer une catégorie</h2>
+<input type="text" />
+<button >Ajouter</button>
+
+<div *ngFor="let item of ure.categories_questions">
+    <h2>Catégorie : {{ item.nom }}</h2>
+    <div *ngFor="let cartes of item.cartes">
+        <h3>Thème : {{cartes.theme}}</h3>
+        <h4>Questions : </h4>
+        <div *ngFor="let nivs of cartes.questions">
+            <h5>Niveau {{nivs.niveau}}
+                <span>{{nivs.question}}</span>
+            </h5>
+            <p>rep : {{nivs.reponse}}</p>
+        </div>
+    </div>
+</div>
+
