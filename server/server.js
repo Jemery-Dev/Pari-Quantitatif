@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const Card = require('./cardModel');
 
 const app = express();
 
@@ -12,19 +13,24 @@ mongoose.connect('mongodb+srv://douze:12@pariquantitatifcluster.7lgvzom.mongodb.
   .then(() => console.log('On est connecté à MongoDB'))
   .catch(err => console.log(err));
 
-const cardSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-});
-
-const Card = mongoose.model('Card', cardSchema);
-
 app.get('/cards', async (req, res) => {
   try {
     const cards = await Card.find();
     res.json(cards);
   } catch (err) {
     res.status(500).json({ message: err.message });
+  }
+});
+
+app.post('/cards', async (req,res) => {
+  const { nom, cartes } = req.body;
+
+  try {
+    const newCategory = new Card({ nom, cartes });
+    const savedCategory = await newCategory.save();
+    res.status(201).json(savedCategory);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 });
 

@@ -2,27 +2,24 @@
 <h1>teteteteteteteteteest</h1>
 
 <h1>Ajouter dans le jijison</h1>
-<h2>Créer une catégorie</h2>
-<input type="text" />
-<button >Ajouter</button>
 
-  <div *ngFor="let card of cards">
-    <div *ngFor="let categorie of card.categories_questions">
-    <!-- Afficher le nom de la catégorie -->
+
+<h2>Créer une catégorie</h2>
+<form (ngSubmit)="ajouterCategorie()">
+  <input type="text" placeholder="Nom de la catégorie" [(ngModel)]="nouvelleCategorie.nom" name="nom" required />
+  <button type="submit">Ajouter</button>
+</form>
+
+
+  <div *ngFor="let categorie of cards">
     <h2>{{ categorie.nom }}</h2>
     
-    <!-- Afficher toutes les cartes de la catégorie -->
     <div *ngFor="let carte of categorie.cartes">
-      <!-- Afficher le thème de la carte -->
       <h3>{{ carte.theme }}</h3>
       
-      <!-- Afficher toutes les questions et réponses de la carte -->
       <div *ngFor="let question of carte.questions">
-        <!-- Afficher la question -->
         <p>Niveau {{ question.niveau }} : {{ question.question }}</p>
-        <!-- Afficher la réponse -->
         <p>Réponse : {{ question.reponse }}</p>
       </div>
     </div>
-</div>
 </div>

@@ -14,4 +14,8 @@ export class CardService {
     return this.http.get(this.baseUrl);
   }
 
+  addCategory(category: { nom: string }): Observable<any> {
+    return this.http.post(this.baseUrl, category);
+  }
+
 }
