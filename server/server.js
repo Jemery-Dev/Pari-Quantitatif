@@ -9,7 +9,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://douze:12@pariquantitatifcluster.7lgvzom.mongodb.net/pari-quantitatif', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://douze:12@pariquantitatifcluster.7lgvzom.mongodb.net/')
+
   .then(() => console.log('On est connecté à MongoDB'))
   .catch(err => console.log(err));
 

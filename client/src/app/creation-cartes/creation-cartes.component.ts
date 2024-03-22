@@ -5,15 +5,14 @@ interface CardData {
   _id: string;
   nom: string;
   cartes: {
-      theme: string;
-      questions: {
-        niveau: number;
-        question: string;
-        reponse: string;
-      }[];
+    theme: string;
+    questions: {
+      niveau: number;
+      question: string;
+      reponse: string;
+    }[];
   }[];
 }
-
 
 @Component({
   selector: 'app-creation-cartes',
@@ -22,9 +21,7 @@ interface CardData {
 })
 export class CreationCartesComponent implements OnInit {
 
-  nouvelleCategorie: { nom: string, cartes: {
-    push: any; theme: string, questions: { niveau: number, question: string, reponse: string }[] 
-}[] } = { nom: '', cartes: [] };
+  nouvelleCategorie: { nom: string, cartes: { theme: string, questions: { niveau: number, question: string, reponse: string }[] }[] } = { nom: '', cartes: [] };
   cards: CardData[] = [];
 
   constructor(private cardService: CardService) { }
@@ -40,7 +37,6 @@ export class CreationCartesComponent implements OnInit {
     );
   }
 
-
   ajouterCategorie(): void {
     if (this.nouvelleCategorie.nom.trim() === '') {
       alert('Veuillez entrer un nom pour la catégorie.');
@@ -51,7 +47,7 @@ export class CreationCartesComponent implements OnInit {
       nom: this.nouvelleCategorie.nom,
       cartes: []
     };
-  
+
     this.cardService.addCategory(nouvelleCategorieAvecCartes).subscribe(
       (response) => {
         this.nouvelleCategorie.nom = '';
@@ -71,5 +67,3 @@ export class CreationCartesComponent implements OnInit {
     );
   }    
 }
-
-

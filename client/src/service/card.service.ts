@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,9 @@ export class CardService {
   constructor(private http: HttpClient) { }
 
   getAllCards(): Observable<any> {
-    return this.http.get(this.baseUrl);
+    return this.http.get(this.baseUrl)
   }
+  
 
   addCategory(category: { nom: string }): Observable<any> {
     return this.http.post(this.baseUrl, category);
