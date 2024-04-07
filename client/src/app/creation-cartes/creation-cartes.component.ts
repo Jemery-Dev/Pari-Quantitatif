@@ -56,7 +56,6 @@ export class CreationCartesComponent implements OnInit {
         this.cardService.getAllCards().subscribe(
           data => {
             this.cards = data;
-            this.categorieSelectionne = this.cards[0].nom;
           },
           error => {
             console.log(error);
