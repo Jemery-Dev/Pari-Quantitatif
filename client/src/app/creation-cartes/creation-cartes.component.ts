@@ -26,6 +26,8 @@ export class CreationCartesComponent implements OnInit {
   nouvelleCategorie: { nom: string, cartes: { theme: string, questions: { niveau: number, question: string, reponse: string }[] }[] } = { nom: '', cartes: [] };
   cards: CardData[] = [];
 
+
+
   constructor(private cardService: CardService) { }
 
   ngOnInit(): void {
@@ -37,6 +39,15 @@ export class CreationCartesComponent implements OnInit {
         console.log(error);
       }
     );
+
+    for (let i = 0; i < 12; i++) {
+      this.nomNouvelleCarte.questions.push({
+        niveau: i + 1,
+        question: "",
+        reponse: ""
+      });
+    }
+    
   }
 
   ajouterCategorie(): void {
@@ -71,16 +82,23 @@ export class CreationCartesComponent implements OnInit {
 
   ajouterCarteACategorie(catID: string): void{
     if(this.nomNouvelleCarte.theme.trim() === ''){
-      alert("Veuillez entrer un nom pour le thème : " + this.nomNouvelleCarte.theme);
+      alert("Veuillez entrer un nom pour le thème");
       return;
     }
 
-    alert(catID)
-
     const nouvelleCarte = {
       theme: this.nomNouvelleCarte.theme,
-      questions: []
+      questions: [] as { niveau: number; question: string; reponse: string; }[]
     };
+    
+    for (let i = 0; i < 12; i++) {
+      nouvelleCarte.questions.push({
+        niveau: i + 1,
+        question: "",
+        reponse: ""
+      });
+    }
+    
 
     this.cardService.addCardsToCategory(catID, nouvelleCarte).subscribe(
       (response) => {

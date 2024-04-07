@@ -15,11 +15,17 @@
 
 
 <form (ngSubmit)="ajouterCarteACategorie(categorieSelectionne)">
-  <select [(ngModel)]="categorieSelectionne" name="categorieSelectionne" ngModel>
+  <select [(ngModel)]="categorieSelectionne" name="categorieSelectionne">
     <option *ngFor="let categorie of cards" [ngValue]="categorie._id">{{categorie.nom}}</option>
   </select>
   <input type="text" placeholder="Ajouter thème" [(ngModel)]="nomNouvelleCarte.theme" name="theme" required />
-  <button type="submit">Ajouter {{nomNouvelleCarte.theme}}</button>
+  <ul>
+    <li *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]">
+      <input type="text" [placeholder]="'Question ' + (i + 1)" [(ngModel)]="nomNouvelleCarte.questions[i].question" name="theme" required />
+      <input type="text" [placeholder]="'Reponse ' + (i + 1)" [(ngModel)]="nomNouvelleCarte.questions[i].reponse" name="theme" required />
+    </li>    
+  </ul>  
+  <button type="submit">Ajouter</button>
 </form>
 
 
