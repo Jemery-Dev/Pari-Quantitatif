@@ -11,9 +11,22 @@
 </form>
 
 
-  <div *ngFor="let categorie of cards">
+<br>
+
+
+<form (ngSubmit)="ajouterCarteACategorie(categorieSelectionne)">
+  <select>
+    <option *ngFor="let categorie of cards" [value]="categorie.nom" [(ngModel)]="categorieSelectionne" >{{categorie.nom}}</option>
+  </select>
+  <input type="text" placeholder="Ajouter theme" [(ngModel)]="nomNouvelleCarte.theme" name="theme" required />
+  <button type="submit">Ajouter {{nomNouvelleCarte.theme}}</button>
+</form>
+
+
+<div *ngFor="let categorie of cards">
     <h2>{{ categorie.nom }}</h2>
-    
+    <button (click)="supprimerCategorie(categorie._id)">supprimer {{categorie.nom}}</button>
+
     <div *ngFor="let carte of categorie.cartes">
       <h3>{{ carte.theme }}</h3>
       

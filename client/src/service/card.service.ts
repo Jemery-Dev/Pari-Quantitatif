@@ -19,4 +19,14 @@ export class CardService {
     return this.http.post(this.baseUrl, category);
   }
 
+  deleteCategory(categoryId: string): Observable<any> {
+    const url = `${this.baseUrl}/${categoryId}`;
+    return this.http.delete(url);
+  }
+
+  addCardsToCategory(categoryId: string, cards: {theme: string}): Observable<any> {
+    const url = `${this.baseUrl}/${categoryId}/cartes`;
+    return this.http.post(url, cards);
+  }
+
 }
