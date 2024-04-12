@@ -94,8 +94,8 @@ export class CreationCartesComponent implements OnInit {
     for (let i = 0; i < 12; i++) {
       nouvelleCarte.questions.push({
         niveau: i + 1,
-        question: "",
-        reponse: ""
+        question: this.nomNouvelleCarte.questions[i].question,
+        reponse: this.nomNouvelleCarte.questions[i].reponse
       });
     }
     

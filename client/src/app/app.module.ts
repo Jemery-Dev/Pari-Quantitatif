@@ -7,12 +7,14 @@ import { CreationCartesComponent } from './creation-cartes/creation-cartes.compo
 import { provideRouter } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreationCartesComponent
+    CreationCartesComponent,
+    HomePageComponent
   ],
   imports: [
     HttpClientModule,
