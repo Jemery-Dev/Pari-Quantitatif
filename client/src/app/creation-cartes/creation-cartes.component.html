@@ -1,4 +1,4 @@
-<p>creation-cartes works!</p>
+<!-- <p>creation-cartes works!</p>
 <h1>teteteteteteteteteest</h1>
 
 <a routerLink="/">retour</a>
@@ -47,3 +47,53 @@
       </div>
     </div>
 </div>
+ -->
+
+ <div class="bodyCarteCreer">
+    <div class="containerForm">
+        <form>
+            <div class="formNomTheme">
+                <div class="titre">
+                    <a routerLink="/">Accueil</a>
+                    <h1>Créer une carte</h1>
+                </div>
+                <div class="ligneForm">
+                    <label for="categorieSelectionne">Catégorie</label>
+                    <select [(ngModel)]="categorieSelectionne" name="categorieSelectionne">
+                        <option value="" disabled selected>Choisissez une catégorie</option>
+                        <option *ngFor="let categorie of cards" [ngValue]="categorie._id">{{categorie.nom}}</option>
+                    </select>
+                </div>
+                <div class="ligneForm">
+                    <label for="theme">Thème de la carte</label>
+                    <input type="text" placeholder="Thème" name="theme" [(ngModel)]="nomNouvelleCarte.theme" required/>
+                </div>
+                <div class="footerForm">
+                    <a>Voir les cartes</a>
+                    <button>Questions</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="carteEnCreation">
+        <div class="inter-carteEnCreation">
+            <div class="questionsCarte">
+                <h1>Pari Quantitatif</h1>
+                <h3>Tu te met combien en</h3>
+                <h2>{{nomNouvelleCarte.theme}} ?</h2>
+                <div class="questions">
+                    <div class="question" *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]">
+                        <img [src]="'../../assets/svg/num-' + (i + 1) + '.svg'" [alt]="i"/>
+                    </div>     
+                </div>
+            </div>
+            <div class="reponsesCarte">
+                
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+

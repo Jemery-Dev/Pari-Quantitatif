@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+
+
+.bodyCarteCreer{
+    background: linear-gradient(45deg, rgba(90,60,53,1) 0%, rgba(125,97,90,1) 48%, rgba(90,60,53,1) 100%); 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'capriola', sans-serif;
+
+    .containerForm{
+        width: 40%;
+        height: 60%;
+        position: relative;
+
+        form{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            .formNomTheme{
+                height: 60%;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.22);
+                backdrop-filter: blur(3px);
+                border-radius: 21px;
+                position: relative;
+
+                .titre{
+                    position: relative;
+                    display: flex;
+
+                    a{
+                        color: rgba(255, 255, 255, 0.5);
+                        margin: 25px;
+                        font-family: 'Capriola';
+                        font-size: 20px;
+                        position: absolute;
+                        text-decoration: none;
+                        transition: 0.4s ease;
+                        overflow: hidden;
+
+                        &::after{
+                            display: block;
+                            content: "";
+                            width: 100%;
+                            height: 2px;
+                            background: white;
+                            transform: translateX(-100%);
+                            transition: 0.4s ease;
+                        }
+
+                        &:hover{
+                            color: white;
+
+                            &::after{
+                                transform: translateX(0);
+                            }
+                        }
+                    }
+
+                    h1{
+                        width: 100%;
+                        text-align: center;
+                        color: white;
+                    }
+                }
+
+                label{
+                    font-size: 20px;
+                }
+
+                .ligneForm{
+                    width: 100%;
+                    display: flex;
+                    margin: 30px;
+                    justify-content: space-evenly;
+
+                    label{
+                        margin-left: 5%;
+                    }
+
+                    select, input{
+                        font-family: 'copriola', sans-serif;
+                        font-size: 20px;
+                        border: 0;
+                        background: rgba(255, 255, 255, 0.22);
+                        backdrop-filter: blur(4px);
+                        border-radius: 6px;
+                        padding: 5px;
+                    }
+
+                    input{
+                        width: 50%;
+                    }
+                }
+                
+                .footerForm{
+                    display: flex;
+                    justify-content: end;
+
+                    a{
+                        color: rgba(255, 255, 255, 0.5);
+                        margin: 25px;
+                        font-family: 'Capriola';
+                        font-size: 20px;
+                        position: absolute;
+                        text-decoration: none;
+                        transition: 0.4s ease;
+                        overflow: hidden;
+                        margin-right: 78%;
+
+                        &::after{
+                            display: block;
+                            content: "";
+                            width: 100%;
+                            height: 2px;
+                            background: white;
+                            transform: translateX(-100%);
+                            transition: 0.4s ease;
+                        }
+
+                        &:hover{
+                            color: white;
+
+                            &::after{
+                                transform: translateX(0);
+                            }
+                        }
+                    }
+
+                    button{
+                        border: 0;
+                        background: #4D3029;
+                        border-radius: 12px;
+                        padding: 10px 21px;
+                        font-size: 20px;
+                        color: white;
+                        font-family: 'Capriola';
+                        margin-right: 3%;
+                        margin-top: 4%;
+                    }
+                }
+            }
+        }
+    }
+
+    .carteEnCreation{
+        margin: 1%;
+        background: transparent;
+        width: 20%;
+        height: 10%;
+        perspective: 1000px;
+    
+        .inter-carteEnCreation{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: 0.8s;
+            transform-style: preserve-3d;
+    
+            .questionsCarte, .reponsesCarte{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                border: #ff66c4 solid 1px;
+            }
+    
+            .questionsCarte{
+                background: #242424;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+            }
+    
+            .reponsesCarte{
+                background: #242424;
+                transform: rotateY(180deg);
+            }
+        }
+    
+        &:hover{
+    
+            .inter-carteEnCreation{
+                transform: rotateY(180deg);
+            }
+        }
+    }
+}
+
+
