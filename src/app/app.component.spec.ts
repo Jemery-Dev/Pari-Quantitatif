@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { ChatComponent } from './chat/chat.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        ChatComponent
       ],
     }).compileComponents();
   });
