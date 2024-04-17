@@ -7,11 +7,36 @@
 </header>
 
 <main>
-    <div class="chat-container">
-        <div class="chat-box">
-            <div class="card">
-                <div class="card-header">
-                    Message direct
+    <div class="container">
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Message direct
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush" id="messageList">
+                            <li class="list-group-item" *ngFor="let message of webSocketService.websocketMessage">
+                                <span class="user-name">{{message.user}}:</span>
+                                <span class="user-message">{{message.message}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <form (ngSubmit)="sendMessage(wsMessageForm.value.user, wsMessageForm.value.message)" #wsMessageForm="ngForm">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="user" id="input-user" ngModel placeholder="Utilisateur">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="message" id="input-message" ngModel placeholder="Message">
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
