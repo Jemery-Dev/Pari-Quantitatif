@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap');
 
 
 .bodyCarteCreer{
@@ -85,6 +86,10 @@
                         margin-left: 5%;
                     }
 
+                    .labelCategorie{
+                        width: 30%;
+                    }
+
                     select, input{
                         font-family: 'copriola', sans-serif;
                         font-size: 20px;
@@ -93,6 +98,10 @@
                         backdrop-filter: blur(4px);
                         border-radius: 6px;
                         padding: 5px;
+                    }
+
+                    select{
+                        margin-right: 12%;
                     }
 
                     input{
@@ -153,8 +162,8 @@
     .carteEnCreation{
         margin: 1%;
         background: transparent;
-        width: 20%;
-        height: 10%;
+        width: 25%;
+        height: 80%;
         perspective: 1000px;
     
         .inter-carteEnCreation{
@@ -174,19 +183,93 @@
                 height: 100%;
                 backface-visibility: hidden;
                 -webkit-backface-visibility: hidden;
-                border: #ff66c4 solid 1px;
             }
     
             .questionsCarte{
-                background: #242424;
+                background: #4D3029;
+                color: white;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: space-around;
+                justify-content: flex-start;
+                box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.7);
+                transition: 0.4s;
+
+                h1{
+                    font-family: "Jacques Francois Shadow", serif;
+                    margin: 0;
+                    width: 100%;
+                    margin-left: 1%;
+                    text-align: left;
+                    font-weight: 400;
+                    font-size: 33px;
+                }
+
+                h3{
+                    margin: 0;
+                    font-size: 20px;
+                    font-weight: 500;
+                    padding-right: 4%;
+                    margin-top: 1%;
+                }
+
+                h2{
+                    margin: 0;
+                    font-size: 33px;
+                }
+
+                .questions{
+                    background: white;
+                    width: 85%;
+                    height: 100%;
+                    margin: 3% 0 8% 0;
+                    border-radius: 0 20px 20px 0;
+                    position: relative;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: space-around;
+
+                    &::after{
+                        content: "";
+                        display: block;
+                        width: 65px;
+                        height: 65px;
+                        border-radius: 50%;
+                        background: #4D3029;
+                        position: absolute;
+                        top: -5%;
+                        left: -8%;
+                    }
+
+                    &::before{
+                        content: "";
+                        display: block;
+                        width: 65px;
+                        height: 65px;
+                        border-radius: 50%;
+                        background: #4D3029;
+                        position: absolute;
+                        bottom: -5%;
+                        left: -8%;
+                    }
+
+                    .question{
+                        margin-left: 12%;
+                        border-bottom: 2px solid black;
+                        width: 80%;
+                        display: flex;
+
+                        img{
+                            height: 90%;
+                        }
+                    }
+                }
             }
     
             .reponsesCarte{
-                background: #242424;
+                background: #4D3029;
                 transform: rotateY(180deg);
             }
         }
@@ -195,7 +278,13 @@
     
             .inter-carteEnCreation{
                 transform: rotateY(180deg);
+
+                .questionsCarte{
+                    box-shadow: none;
+                }
             }
+
+            
         }
     }
 }

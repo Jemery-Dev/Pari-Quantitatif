@@ -58,7 +58,7 @@
                     <h1>Créer une carte</h1>
                 </div>
                 <div class="ligneForm">
-                    <label for="categorieSelectionne">Catégorie</label>
+                    <label for="categorieSelectionne" class="labelCategorie">Catégorie</label>
                     <select [(ngModel)]="categorieSelectionne" name="categorieSelectionne">
                         <option value="" disabled selected>Choisissez une catégorie</option>
                         <option *ngFor="let categorie of cards" [ngValue]="categorie._id">{{categorie.nom}}</option>
@@ -80,7 +80,7 @@
         <div class="inter-carteEnCreation">
             <div class="questionsCarte">
                 <h1>Pari Quantitatif</h1>
-                <h3>Tu te met combien en</h3>
+                <h3>Tu te mets combien en</h3>
                 <h2>{{nomNouvelleCarte.theme}} ?</h2>
                 <div class="questions">
                     <div class="question" *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]">
