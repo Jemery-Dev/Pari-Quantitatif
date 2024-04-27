@@ -30,7 +30,9 @@
   </ul>  
   <button type="submit">Ajouter</button>
 </form>
-
+<h1>{{nomNouvelleCarte.theme}}</h1>
+<h2 *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]"><p>{{nomNouvelleCarte.questions[i].question}}</p>
+<p>{{nomNouvelleCarte.questions[i].reponse}}</p></h2>
 
 
 
@@ -46,13 +48,14 @@
         <p>Réponse : {{ question.reponse }}</p>
       </div>
     </div>
-</div>
- -->
+</div> -->
+
 
  <div class="bodyCarteCreer">
     <div class="containerForm">
         <form>
-            <div class="formNomTheme">
+
+            <div class="formNomTheme" #formNomTheme>
                 <div class="titre">
                     <a routerLink="/">Accueil</a>
                     <h1>Créer une carte</h1>
@@ -66,31 +69,84 @@
                 </div>
                 <div class="ligneForm">
                     <label for="theme">Thème de la carte</label>
-                    <input type="text" placeholder="Thème" name="theme" [(ngModel)]="nomNouvelleCarte.theme" required/>
+                    <input type="text" placeholder="Thème" name="theme" [(ngModel)]="nomNouvelleCarte.theme" maxlength="21" required/>
                 </div>
                 <div class="footerForm">
                     <a>Voir les cartes</a>
-                    <button>Questions</button>
+                    <button type="submit" (click)="passerAuFormQuestions(categorieSelectionne)" >Questions</button>
                 </div>
             </div>
+
+            <div class="formQuestions" #formQuestions>
+                <div class="titre">
+                    <a routerLink="/">Accueil</a>
+                    <h1>Créer une carte</h1>
+                </div>
+
+                <div class="question" *ngFor="let i of tab">
+                    <label>Question n°{{i}} :</label>
+                    <input class="inputQuestion" type="text" [placeholder]="'Question ' + i" [(ngModel)]="nomNouvelleCarte.questions[i - 1].question" name="theme" maxlength="80" required />
+                </div>
+
+                <div class="formFooter">
+                    <button type="button" (click)="retourNomTheme()">retour</button>
+                    <a>Voir les cartes</a>
+                    <button type="submit" (click)="passerAuFormReponses()">Réponses</button>
+                </div>
+            </div>
+
+            <div class="formReponses" #formReponses>
+                <div class="titre">
+                    <a routerLink="/">Accueil</a>
+                    <h1>Créer une carte</h1>
+                </div>
+
+                <div class="reponse" *ngFor="let i of tab">
+                    <label>Réponse n°{{i}} :</label>
+                    <input class="inputReponse" type="text" [placeholder]="'Réponse ' + i" [(ngModel)]="nomNouvelleCarte.questions[i - 1].reponse" name="theme" maxlength="80" required />
+                </div>
+
+                <div class="formFooter">
+                    <button type="button" (click)="retourQuestions()">retour</button>
+                    <a>Voir les cartes</a>
+                    <button type="submit"  (click)="ajouterCarteACategorie(categorieSelectionne)">Créer</button>
+                </div>
+            </div>
+
         </form>
     </div>
 
+    <button class="btnTurnCard" (click)="tournerCarte()">
+        <img src="../../assets/icons8-tourner-50.png" alt="Retourner la carte"/>
+    </button>
+
+
     <div class="carteEnCreation">
-        <div class="inter-carteEnCreation">
+        <div class="inter-carteEnCreation" #interCarte>
+
             <div class="questionsCarte">
                 <h1>Pari Quantitatif</h1>
                 <h3>Tu te mets combien en</h3>
                 <h2>{{nomNouvelleCarte.theme}} ?</h2>
                 <div class="questions">
-                    <div class="question" *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]">
-                        <img [src]="'../../assets/svg/num-' + (i + 1) + '.svg'" [alt]="i"/>
+                    <div class="question" *ngFor="let j of tab">
+                        <img [src]="'../../assets/svg/num-' + j + '.svg'" [alt]="j"/>
+                        <span #textSpan>{{nomNouvelleCarte.questions[j - 1].question}}</span>
                     </div>     
                 </div>
             </div>
+
             <div class="reponsesCarte">
-                
+                <h1>Pari Quantitatif</h1>
+                <h2 id="titreReponse">Réponses</h2>
+                <div class="reponses">
+                    <div class="reponse" *ngFor="let j of tab">
+                        <img [src]="'../../assets/svg/num-' + j + '.svg'" [alt]="j"/>
+                        <span #textSpan>{{nomNouvelleCarte.questions[j - 1].reponse}}</span>
+                    </div>     
+                </div>
             </div>
+
         </div>
     </div>
  </div>

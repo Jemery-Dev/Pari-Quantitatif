@@ -3,16 +3,20 @@
 
 
 .bodyCarteCreer{
-    background: linear-gradient(45deg, rgba(90,60,53,1) 0%, rgba(125,97,90,1) 48%, rgba(90,60,53,1) 100%); 
+    background: linear-gradient(45deg, rgba(52,152,219,1) 0%, rgb(156, 176, 189) 48%, rgba(52,152,219,1) 100%); 
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     font-family: 'capriola', sans-serif;
 
+    button{
+        cursor: pointer;
+    }
+
     .containerForm{
         width: 40%;
-        height: 60%;
+        height: 90%;
         position: relative;
 
         form{
@@ -24,13 +28,14 @@
             justify-content: center;
             position: relative;
 
-            .formNomTheme{
-                height: 60%;
+            .formNomTheme, .formQuestions, .formReponses{
+                height: 40%;
                 width: 100%;
                 background: rgba(255, 255, 255, 0.22);
                 backdrop-filter: blur(3px);
                 border-radius: 21px;
                 position: relative;
+                transition: 0.4s ease;
 
                 .titre{
                     position: relative;
@@ -145,7 +150,7 @@
 
                     button{
                         border: 0;
-                        background: #4D3029;
+                        background:  #3498db ;
                         border-radius: 12px;
                         padding: 10px 21px;
                         font-size: 20px;
@@ -156,7 +161,95 @@
                     }
                 }
             }
+
+            .invisible{
+                display: none;
+                opacity: 0;
+            }
+
+            .formQuestions, .formReponses{
+                display: none;
+                opacity: 0;
+                height: 86%;
+                transition: 0.4s ease;
+
+                .question, .reponse{
+                    display: flex;
+                    margin: 12px;
+                    width: 100%;
+                    justify-content: space-around;
+
+                    label{
+                        font-size: 24px;
+                    }
+
+                    input{
+                        font-family: 'copriola', sans-serif;
+                        font-size: 20px;
+                        border: 0;
+                        background: rgba(255, 255, 255, 0.22);
+                        backdrop-filter: blur(4px);
+                        border-radius: 6px;
+                        padding: 5px;
+                        width: 64%;
+                        margin-right: 5px;
+                    }
+                }
+
+                .formFooter{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 12%;
+
+                    button{
+                        border: 0;
+                        background:  #3498db ;
+                        border-radius: 12px;
+                        padding: 10px 35px;
+                        font-size: 20px;
+                        color: white;
+                        font-family: 'Capriola';
+                        margin: 0 12px;
+                    }
+
+                    a{
+                        color: rgba(255, 255, 255, 0.5);
+                        font-family: 'Capriola';
+                        font-size: 20px;
+                        text-decoration: none;
+                        transition: 0.4s ease;
+                        overflow: hidden;
+
+                        &::after{
+                            display: block;
+                            content: "";
+                            width: 100%;
+                            height: 2px;
+                            background: white;
+                            transform: translateX(-100%);
+                            transition: 0.4s ease;
+                        }
+
+                        &:hover{
+                            color: white;
+
+                            &::after{
+                                transform: translateX(0);
+                            }
+                        }
+                    }
+                }
+            }
         }
+    }
+
+    .btnTurnCard{
+        margin: 0 -15%;
+        border: 1px solid rgba(90, 90, 90, 0.603);
+        border-radius: 21px;
+        background: none;
+        cursor: pointer;
     }
 
     .carteEnCreation{
@@ -185,8 +278,8 @@
                 -webkit-backface-visibility: hidden;
             }
     
-            .questionsCarte{
-                background: #4D3029;
+            .questionsCarte, .reponsesCarte{
+                background:  #3498db ;
                 color: white;
                 display: flex;
                 flex-direction: column;
@@ -218,7 +311,14 @@
                     font-size: 33px;
                 }
 
-                .questions{
+                #titreReponse{
+                    background: #d6181851;
+                    font-size: 28px;
+                    padding: 10px 35px;
+                    border-radius: 10px;
+                }
+
+                .questions, .reponses{
                     background: white;
                     width: 85%;
                     height: 100%;
@@ -237,7 +337,7 @@
                         width: 65px;
                         height: 65px;
                         border-radius: 50%;
-                        background: #4D3029;
+                        background:  #3498db ;
                         position: absolute;
                         top: -5%;
                         left: -8%;
@@ -249,44 +349,46 @@
                         width: 65px;
                         height: 65px;
                         border-radius: 50%;
-                        background: #4D3029;
+                        background:  #3498db ;
                         position: absolute;
                         bottom: -5%;
                         left: -8%;
                     }
 
-                    .question{
+                    .question:nth-last-child(-n + 3) img, .reponse:nth-last-child(-n + 3) img{
+                        margin-left: -4%;
+                    }
+
+                    .question, .reponse{
                         margin-left: 12%;
                         border-bottom: 2px solid black;
                         width: 80%;
                         display: flex;
 
                         img{
+                            height: 88%;
+                        }
+
+                        span{
+                            display: flex;
+                            align-items: center;
+                            padding-top: 1%;
+                            color: black;
+                            width: 100%;
                             height: 90%;
+                            margin: 0 2%;
+                            font-size: 60%;
+                            overflow-wrap: break-word;
+                            text-align: left;
                         }
                     }
                 }
             }
     
             .reponsesCarte{
-                background: #4D3029;
+                background:  #3498db ;
                 transform: rotateY(180deg);
             }
-        }
-    
-        &:hover{
-    
-            .inter-carteEnCreation{
-                transform: rotateY(180deg);
-
-                .questionsCarte{
-                    box-shadow: none;
-                }
-            }
-
-            
         }
     }
 }
-
-
