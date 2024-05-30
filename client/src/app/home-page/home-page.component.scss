@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.main-container {
+  background: #236084;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Capriola', sans-serif;
+}
+
+.logo {
+  margin-top: -5%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
