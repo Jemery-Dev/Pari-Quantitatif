@@ -42,6 +42,12 @@ img {
     color: white;
     flex: 1;
     cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover{
+      scale: 1.02;
+      box-shadow: 4px 4px 12px black;
+    }
 
     img{
       height: 12vh;
