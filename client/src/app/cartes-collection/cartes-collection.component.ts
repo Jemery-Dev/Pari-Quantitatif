@@ -14,6 +14,11 @@ interface CardData {
   }[];
 }
 
+function flipCard(event: { currentTarget: any; }) {
+  const card = event.currentTarget;
+  card.classList.toggle('flipped');
+}
+
 @Component({
   selector: 'app-cartes-collection',
   templateUrl: './cartes-collection.component.html',
@@ -35,4 +40,12 @@ export class CartesCollectionComponent implements OnInit {
       }
     );
   }
+
+  flipCard(id: string) {
+    const card = document.getElementById('card-' + id);
+    if (card) {
+      card.classList.toggle('flipped');
+    }
+  }
+
 }
