@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.main-container {
+  background: #236084;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Capriola', sans-serif;
+}
+
+.logo {
+  margin-top: -5%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cards{
+  display: flex;
+  justify-content: space-between;
+  gap: 12%;
+  padding: 0 5%;
+  margin-top: 4%;
+  
+  .card{
+    background: #49C7AB;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    flex: 1;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+
+    &:hover{
+      scale: 1.02;
+      box-shadow: 4px 4px 12px black;
+    }
+
+    img{
+      height: 12vh;
+    }
+
+    p{
+      padding: 2%;
+      text-align: center;
+    }
+  }
+}

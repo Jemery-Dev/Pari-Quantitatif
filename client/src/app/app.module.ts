@@ -8,6 +8,7 @@ import { provideRouter } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './home-page/home-page.component';
+import {NgOptimizedImage} from "@angular/common";
 
 
 @NgModule({
@@ -16,12 +17,13 @@ import { HomePageComponent } from './home-page/home-page.component';
     CreationCartesComponent,
     HomePageComponent
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        NgOptimizedImage
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
