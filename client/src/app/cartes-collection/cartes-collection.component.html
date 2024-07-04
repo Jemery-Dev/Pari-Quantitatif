@@ -1,39 +1,37 @@
 <div class="bodyGallerie">
-    <p class="bodyGallerieTitre">Gallerie de cartes</p>
+    <p class="bodyGallerieTitre">Galerie de cartes</p>
     <div class="gallerieFiltre">
         <h2>Filtrer par catégorie</h2>
-        <select>
-            <option *ngFor="let card of cards">{{ card.nom }}</option>
+        <select [(ngModel)]="categorieSelectionne">
+            <option value="">Toutes les catégories</option>
+            <option *ngFor="let card of cards" [value]="card.nom">{{ card.nom }}</option>
         </select>
     </div>
 
     <div class="gallerieContenu">
-        <div class="categorie" *ngFor="let card of cards">
-            <h2 class="categorieTitre">{{ card.nom }}</h2>
-            <ul class="carteListe">
-                <li class="carteItem" *ngFor="let carte of card.cartes">
-                    <div class="carte" (click)="flipCard(carte._id)">
-                        <div class="recto" id="recto-{{carte._id}}">
-                            <h3 class="carteTheme">{{ carte.theme }}</h3>
-                            <ul class="questionListe">
-                                <li class="questionItem" *ngFor="let question of carte.questions">
-                                    <p class="questionNiveau">Niveau: {{ question.niveau }}</p>
-                                    <p class="questionTexte">{{ question.question }}</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="verso" id="verso-{{carte._id}}">
-                            <h3 class="carteTheme">{{ carte.theme }}</h3>
-                            <ul class="reponseListe">
-                                <li class="reponseItem" *ngFor="let question of carte.questions">
-                                    <p class="questionNiveau">Niveau: {{ question.niveau }}</p>
-                                    <p class="reponseTexte">{{ question.reponse }}</p>
-                                </li>
-                            </ul>
-                        </div>
+        <ul class="carteListe">
+            <li class="carteItem" *ngFor="let card of filteredCards()">
+                <div class="carte" [ngClass]="{'flipped': isFlipped(card.nom, card.theme)}" (click)="flipCard(card.nom, card.theme)">
+                    <div class="recto">
+                        <h3 class="carteTheme">{{ card.theme }}</h3>
+                        <ul class="questionListe">
+                            <li class="questionItem" *ngFor="let question of card.questions">
+                                <p class="questionNiveau">Niveau: {{ question.niveau }}</p>
+                                <p class="questionTexte">{{ question.question }}</p>
+                            </li>
+                        </ul>
                     </div>
-                </li>
-            </ul>
-        </div>
+                    <div class="verso">
+                        <h3 class="carteTheme">{{ card.theme }}</h3>
+                        <ul class="reponseListe">
+                            <li class="reponseItem" *ngFor="let question of card.questions">
+                                <p class="reponseNiveau">Niveau: {{ question.niveau }}</p>
+                                <p class="reponseTexte">{{ question.reponse }}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>

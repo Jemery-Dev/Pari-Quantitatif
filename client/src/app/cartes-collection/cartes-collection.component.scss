@@ -1,122 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap');
+
 .bodyGallerie {
+    background: linear-gradient(45deg, rgba(52,152,219,1) 0%, rgb(156, 176, 189) 48%, rgba(52,152,219,1) 100%); 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Capriola', sans-serif;
     padding: 20px;
-    font-family: Arial, sans-serif;
+}
 
-    .bodyGallerieTitre {
-        font-size: 2em;
-        text-align: center;
-        margin-bottom: 20px;
-    }
+.bodyGallerieTitre {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
 
-    .gallerieFiltre {
-        text-align: center;
-        margin-bottom: 20px;
+.gallerieFiltre {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
+.gallerieFiltre h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
 
-        select {
-            padding: 10px;
-            font-size: 1em;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-    }
+.gallerieFiltre select {
+    padding: 10px;
+    font-size: 1em;
+    border: 0;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+}
 
-    .gallerieContenu {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+.gallerieContenu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
 
-        .categorie {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
+.carteListe {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-            .categorieTitre {
-                font-size: 1.5em;
-                margin-bottom: 10px;
-                text-align: center;
-                color: #333;
-            }
+.carteItem {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    margin: 1%;
+}
 
-            .carteListe {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
+.carte {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: 0.8s;
+    transform-style: preserve-3d;
+}
 
-                .carteItem {
-                    .carte {
-                        perspective: 1000px;
-                        cursor: pointer;
-                        width: 100%;
-                        height: 300px;
-                        position: relative;
+.recto, .verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: #3498db;
+    color: white;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    box-sizing: border-box;
+}
 
-                        .recto, .verso {
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            backface-visibility: hidden;
-                            transition: transform 0.8s;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: center;
-                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                            border-radius: 10px;
-                        }
+.recto {
+    transform: rotateY(0deg);
+}
 
-                        .recto {
-                            background-color: #3498db;
-                            color: white;
-                        }
+.verso {
+    transform: rotateY(180deg);
+}
 
-                        .verso {
-                            background-color: #2980b9;
-                            color: white;
-                            transform: rotateY(180deg);
-                        }
+.carte.flipped .recto {
+    transform: rotateY(180deg);
+}
 
-                        &.flipped .recto {
-                            transform: rotateY(180deg);
-                        }
+.carte.flipped .verso {
+    transform: rotateY(360deg);
+}
 
-                        &.flipped .verso {
-                            transform: rotateY(0deg);
-                        }
+.carteTheme {
+    font-family: "Jacques Francois Shadow", serif;
+    margin: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 24px;
+}
 
-                        .carteTheme {
-                            font-size: 1.5em;
-                            margin-bottom: 10px;
-                        }
+.questionListe, .reponseListe {
+    color: black;
+    background: white;
+    width: 100%;
+    height: 100%;
+    margin: 10px 0;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
 
-                        .questionListe, .reponseListe {
-                            list-style: none;
-                            padding: 0;
-                            width: 80%;
+.questionItem, .reponseItem {
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    box-sizing: border-box;
+}
 
-                            .questionItem, .reponseItem {
-                                background-color: rgba(255, 255, 255, 0.1);
-                                padding: 10px;
-                                margin-bottom: 5px;
-                                border-radius: 5px;
+.questionNiveau, .reponseNiveau {
+    font-size: 18px;
+    font-weight: bold;
+}
 
-                                .questionNiveau {
-                                    font-weight: bold;
-                                    margin-bottom: 5px;
-                                }
-
-                                .questionTexte, .reponseTexte {
-                                    color: white;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+.questionTexte, .reponseTexte {
+    font-size: 16px;
+    margin-top: 5px;
 }
