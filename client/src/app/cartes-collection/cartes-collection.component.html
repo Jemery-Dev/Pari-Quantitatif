@@ -1,0 +1,13 @@
+<div class="bodyGallerie">
+    <p class="bodyGallerieTitre">Gallerie de cartes</p>
+    <div class="gallerieFiltre">
+        <h2>Filtrer par catégorie</h2>
+        <select>
+
+            <option *ngFor="let card of cards;">{{ card.nom }}</option>
+        </select>
+    </div>
+
+    <ul>
+    </ul>
+</div>

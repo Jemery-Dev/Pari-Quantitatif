@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './home-page/home-page.component';
 import {NgOptimizedImage} from "@angular/common";
+import { CartesCollectionComponent } from './cartes-collection/cartes-collection.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CreationCartesComponent,
-    HomePageComponent
+    HomePageComponent,
+    CartesCollectionComponent
   ],
     imports: [
         HttpClientModule,
