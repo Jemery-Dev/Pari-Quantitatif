@@ -9,13 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './home-page/home-page.component';
 import {NgOptimizedImage} from "@angular/common";
+import { ConfigGameComponent } from './config-game/config-game.component';
+import { JoinGameComponent } from './join-game/join-game.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CreationCartesComponent,
-    HomePageComponent
+    HomePageComponent,
+    ConfigGameComponent,
+    JoinGameComponent
   ],
     imports: [
         HttpClientModule,
