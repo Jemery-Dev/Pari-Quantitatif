@@ -15,7 +15,7 @@ const routes: Routes = [
     component: CreationCartesComponent
   },
   {
-    path: 'gallerie',
+    path: 'galerie',
     component: CartesCollectionComponent
   },
 ];
