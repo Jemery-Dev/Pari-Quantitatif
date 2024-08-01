@@ -15,6 +15,7 @@
                     <div class="recto">
                         <h3 class="carteTheme">{{ card.theme }}</h3>
                         <ul class="questionListe">
+                            <h4>Questions</h4>
                             <li class="questionItem" *ngFor="let question of card.questions">
                                 <p class="questionNiveau">Niveau: {{ question.niveau }}</p>
                                 <p class="questionTexte">{{ question.question }}</p>
@@ -24,6 +25,7 @@
                     <div class="verso">
                         <h3 class="carteTheme">{{ card.theme }}</h3>
                         <ul class="reponseListe">
+                            <h4>Réponses</h4>
                             <li class="reponseItem" *ngFor="let question of card.questions">
                                 <p class="reponseNiveau">Niveau: {{ question.niveau }}</p>
                                 <p class="reponseTexte">{{ question.reponse }}</p>

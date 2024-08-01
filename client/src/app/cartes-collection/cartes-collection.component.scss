@@ -68,6 +68,10 @@
     transform-style: preserve-3d;
 }
 
+.carte :hover{
+    cursor: pointer;
+}
+
 .recto, .verso {
     position: absolute;
     width: 100%;
